@@ -1,3 +1,11 @@
+//
+//  AccountView.swift
+//  OnlinGroceryStoreAdmin
+//
+//  Created by Mohamed Selim on 02/03/2025.
+//
+
+
 import SwiftUI
 
 struct AccountView: View {
@@ -44,35 +52,20 @@ struct AccountView: View {
                         VStack{
                             
                             NavigationLink {
-                                MyOrdersView()
+                                BrandView()
                             } label: {
-                                AccountRow(title: "My Orders", icon: "a_order")
+                                AccountRow(title: "Brands", icon: "a_order")
                             }
                             
-                            
                             NavigationLink {
-                                MyDetailsView()
+                                ZoneView()
                             } label: {
-                                AccountRow(title: "My Details", icon: "a_my_detail")
+                                AccountRow(title: "Zone", icon: "a_order")
                             }
                             
-                            
-                            
+                       
                             NavigationLink {
-                                DelieryAddressView()
-                            } label: {
-                                AccountRow(title: "Delivery Address", icon: "a_delivery_address")
-                            }
-                            
-                            
-                            NavigationLink {
-                                PaymentMethodsView()
-                            } label: {
-                                AccountRow(title: "Payment Methods", icon: "paymenth_methods")
-                            }
-
-                            NavigationLink {
-                                PromoCodeView()
+//                                PromoCodeView()
                             } label: {
                                 AccountRow(title: "Promo Code", icon: "a_promocode")
                             }
@@ -82,7 +75,7 @@ struct AccountView: View {
                         
                         VStack{
                             NavigationLink {
-                                NotificationView()
+//                                NotificationView()
                             } label: {
                                 AccountRow(title: "Notifications", icon: "a_noitification")
                             }
@@ -128,9 +121,7 @@ struct AccountView: View {
 }
 
 #Preview {
-    NavigationView {
         AccountView()
-    }
 }
 
 

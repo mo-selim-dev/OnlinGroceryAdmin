@@ -1,3 +1,11 @@
+//
+//  AccountRow.swift
+//  OnlinGroceryStoreAdmin
+//
+//  Created by Mohamed Selim on 02/03/2025.
+//
+
+
 import SwiftUI
 
 struct AccountRow: View {

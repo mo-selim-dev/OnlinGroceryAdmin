@@ -7,12 +7,18 @@
 
 import SwiftUI
 
-struct ZoneModel: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+struct ZoneModel: Identifiable, Equatable {
+    
+    var id = UUID()
+    var zoneId: Int = 0
+    var zoneName: String = ""
 
-#Preview {
-    ZoneModel()
+    init(dict: NSDictionary) {
+        self.zoneId = dict.value(forKey: "zone_id") as? Int ?? 0
+        self.zoneName = dict.value(forKey: "name") as? String ?? ""
+    }
+    
+    static func == (lhs: ZoneModel, rhs: ZoneModel ) -> Bool {
+        return lhs.id == rhs.id && lhs.zoneId == rhs.zoneId
+    }
 }

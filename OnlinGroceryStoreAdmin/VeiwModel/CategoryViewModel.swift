@@ -1,3 +1,11 @@
+//
+//  CategoryViewModel.swift
+//  OnlinGroceryStoreAdmin
+//
+//  Created by Mohamed Selim on 03/04/2025.
+//
+
+
 import SwiftUI
 
 class CategoryViewModel: ObservableObject {
@@ -95,18 +103,18 @@ class CategoryViewModel: ObservableObject {
     
     //MAKE: ApiCalling
     func apiList(){
-        ServiceCall.post(parameter: [:], path: Globs.SV_CATEGORY_LIST, isToken: true) { responseObj in
+        ServiceCall.post(parameter: [:], path: Globs.Endpoints.categoryList, isToken: true) { responseObj in
             
             if let responseObj = responseObj as? NSDictionary {
-                if (responseObj.value(forKey: KKey.status) as? String ?? "" == "1"){
+                if (responseObj.value(forKey: ResponseKeys.status) as? String ?? "" == "1"){
                         
-                    self.listArr = (responseObj.value(forKey: KKey.payload) as? [NSDictionary] ?? []).map({ obj in
+                    self.listArr = (responseObj.value(forKey: ResponseKeys.payload) as? [NSDictionary] ?? []).map({ obj in
                         return CategoryModel(dict: obj)
                     })
                     
                 }else{
                     self.listArr = []
-                    self.errorMessage = responseObj.value(forKey: KKey.message) as? String ?? "fail"
+                    self.errorMessage = responseObj.value(forKey: ResponseKeys.message) as? String ?? "fail"
                     self.showError = true
                 }
             }
@@ -119,17 +127,17 @@ class CategoryViewModel: ObservableObject {
     
     
     func apiAdd(didDone: ( ()->() )?){
-        ServiceCall.multipart(parameter: ["cat_name": txtName, "color": txtColor  ], path: Globs.SV_CATEGORY_ADD, imageDic: ["image": image! ] , isToken: true) { responseObj in
+        ServiceCall.multipart(parameter: ["cat_name": txtName, "color": txtColor  ], path: Globs.Endpoints.categoryAdd, imageDic: ["image": image! ] , isToken: true) { responseObj in
             
             if let responseObj = responseObj as? NSDictionary {
-                if (responseObj.value(forKey: KKey.status) as? String ?? "" == "1"){
+                if (responseObj.value(forKey: ResponseKeys.status) as? String ?? "" == "1"){
                         
-                    self.errorMessage = responseObj.value(forKey: KKey.message) as? String ?? "success"
+                    self.errorMessage = responseObj.value(forKey: ResponseKeys.message) as? String ?? "success"
                     self.showError = true
                     didDone?()
         
                 }else{
-                    self.errorMessage = responseObj.value(forKey: KKey.message) as? String ?? "fail"
+                    self.errorMessage = responseObj.value(forKey: ResponseKeys.message) as? String ?? "fail"
                     self.showError = true
                 }
             }
@@ -142,18 +150,18 @@ class CategoryViewModel: ObservableObject {
     
     func apiUpdate(catId: Int,didDone: ( ()->() )?){
         
-        ServiceCall.multipart(parameter: ["cat_id": catId, "cat_name": txtName, "color": txtColor  ], path: Globs.SV_CATEGORY_UPDATE, imageDic: image == nil ? [:] : ["image": image! ] , isToken: true) {
+        ServiceCall.multipart(parameter: ["cat_id": catId, "cat_name": txtName, "color": txtColor  ], path: Globs.Endpoints.categoryUpdate, imageDic: image == nil ? [:] : ["image": image! ] , isToken: true) {
             responseObj in
             
             if let responseObj = responseObj as? NSDictionary {
-                if (responseObj.value(forKey: KKey.status) as? String ?? "" == "1"){
+                if (responseObj.value(forKey: ResponseKeys.status) as? String ?? "" == "1"){
                         
-                    self.errorMessage = responseObj.value(forKey: KKey.message) as? String ?? "success"
+                    self.errorMessage = responseObj.value(forKey: ResponseKeys.message) as? String ?? "success"
                     self.showError = true
                     didDone?()
         
                 }else{
-                    self.errorMessage = responseObj.value(forKey: KKey.message) as? String ?? "fail"
+                    self.errorMessage = responseObj.value(forKey: ResponseKeys.message) as? String ?? "fail"
                     self.showError = true
                 }
             }
@@ -166,18 +174,18 @@ class CategoryViewModel: ObservableObject {
     
     func apiDelete(catId: Int){
         
-        ServiceCall.post(parameter: ["cat_id": catId ], path: Globs.SV_CATEGORY_DELETE, isToken: true) { responseObj in
+        ServiceCall.post(parameter: ["cat_id": catId ], path: Globs.Endpoints.categoryDelete, isToken: true) { responseObj in
             
             if let responseObj = responseObj as? NSDictionary {
-                if (responseObj.value(forKey: KKey.status) as? String ?? "" == "1"){
+                if (responseObj.value(forKey: ResponseKeys.status) as? String ?? "" == "1"){
                         
-                    self.errorMessage = responseObj.value(forKey: KKey.message) as? String ?? "success"
+                    self.errorMessage = responseObj.value(forKey: ResponseKeys.message) as? String ?? "success"
                     self.showError = true
                     
                     self.apiList()
         
                 }else{
-                    self.errorMessage = responseObj.value(forKey: KKey.message) as? String ?? "fail"
+                    self.errorMessage = responseObj.value(forKey: ResponseKeys.message) as? String ?? "fail"
                     self.showError = true
                 }
             }

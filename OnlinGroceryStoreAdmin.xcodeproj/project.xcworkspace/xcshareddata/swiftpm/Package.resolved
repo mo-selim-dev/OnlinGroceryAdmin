@@ -1,0 +1,33 @@
+{
+  "originHash" : "31f060c30cb3d55faf0bb7a7ae3139dbd3f7c39473e77ac218282c0de400333a",
+  "pins" : [
+    {
+      "identity" : "countrypicker",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mobven/CountryPicker.git",
+      "state" : {
+        "revision" : "6225c2933fea6abdb8171718b22bbe289706a7aa",
+        "version" : "2.0.3"
+      }
+    },
+    {
+      "identity" : "sdwebimage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SDWebImage/SDWebImage.git",
+      "state" : {
+        "revision" : "cac9a55a3ae92478a2c95042dcc8d9695d2129ca",
+        "version" : "5.21.0"
+      }
+    },
+    {
+      "identity" : "sdwebimageswiftui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SDWebImage/SDWebImageSwiftUI.git",
+      "state" : {
+        "revision" : "451c6dfd5ecec2cf626d1d9ca81c2d4a60355172",
+        "version" : "3.1.3"
+      }
+    }
+  ],
+  "version" : 3
+}

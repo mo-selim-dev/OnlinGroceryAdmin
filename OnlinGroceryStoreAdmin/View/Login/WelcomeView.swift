@@ -46,7 +46,7 @@ struct WelcomeView: View {
                     .padding(.bottom, 30)
                 
                 NavigationLink {
-                    SignInView()
+                    LoginView()
                 } label: {
                     RoundButton(title: "Get Started", color: Color(hex: "31511E").opacity(0.9)) {
                         

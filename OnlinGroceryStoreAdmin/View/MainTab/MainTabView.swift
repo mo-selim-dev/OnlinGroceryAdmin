@@ -17,13 +17,13 @@ struct MainTabView: View {
             
                 
                 if(homeVM.selectTab == 0){
-                    HomeView()
+                    EmptyView()
                 }else if(homeVM.selectTab == 1){
-                    ExploreView()
+                    EmptyView()
                 }else if(homeVM.selectTab == 2){
-                    MyCartView()
+                    EmptyView()
                 }else if(homeVM.selectTab == 3){
-                    FavouriteView()
+                    EmptyView()
                 }else if(homeVM.selectTab == 4){
                     AccountView()
                 }

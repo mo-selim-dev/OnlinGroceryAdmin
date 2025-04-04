@@ -52,7 +52,7 @@ struct LoginView: View {
 
                 
                 NavigationLink {
-                    ForgotPasswordView()
+//                    ForgotPasswordView()
                 } label: {
                     Text("Forgot Password?")
                         .font(.customfont(.medium, fontSize: 14))
@@ -71,7 +71,7 @@ struct LoginView: View {
                 
                 // Signup Navigation
                 NavigationLink {
-                    SignUpView()
+//                    SignUpView()
                 } label: {
                     HStack {
                         Text("Don’t have an account?")
